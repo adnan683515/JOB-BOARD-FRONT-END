@@ -1,0 +1,48 @@
+.edit-com-box{
+    border: 1px solid rgb(226, 210, 180);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    /* background-color: rgb(247, 241, 234); */
+    
+}
+
+
+.edit-box{
+    background-color: blue;
+}
+
+.location-body{
+    background-color: rgb(247, 242, 235);
+}
+
+.body-browser{
+    background-color: rgb(247, 242, 235);
+}
+
+.browse-form-edit{
+    background-color: rgb(6, 96, 170);
+    border: 1px solid orange;
+    color: wheat;
+    /* background-color: orange; */
+
+}
+
+
+.post-title{
+    font-family: fantasy;
+}
+
+.edit-form-location{
+    background-color: rgb(241, 90, 35);
+    color: rgb(7, 77, 190);
+}
+
+.com-body{
+    background-color: rgb(201, 187, 187);
+}
+
+.com-edit-form{
+    background-color: lightsteelblue;
+    color: rgb(0, 0, 0);
+}

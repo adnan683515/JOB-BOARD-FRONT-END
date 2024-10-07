@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Bootstrap demo</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="/css/index.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+    integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+
+<body>
+
+
+  <header class="mb-5">
+
+
+    <div id="navber">
+
+
+    </div>
+
+
+    <img src="/picture/bannarforwebsite.avif" class="img-fluid bannar-base" alt="Responsive image">
+
+
+
+
+  </header>
+
+
+
+
+
+  <main class="body-of-home">
+
+
+
+
+
+
+
+
+
+
+
+    <div class="container px-2 text-center">
+      <div class="row gx-1">
+
+        <div class="col-lg-10 col-md-8 col-sm-12">
+
+
+          <div id="not-found">
+            <p id="not_found_job"></p>
+          </div>
+
+          <div id="job-box-container" class="job-box-container p-3">
+
+
+
+          </div>
+
+
+        </div>
+
+        <div class="col-lg-2 col-md-4 col-sm-12 filtar-box">
+
+          <div class="dropdown mt-5">
+            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Browse Cetagory
+            </button>
+            <ul id="dropdown-designation" class="dropdown-menu B_cetagory">
+
+
+            </ul>
+          </div>
+
+
+
+          <div class="dropdown mt-5">
+            <button class="btn btn_loc dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Location <i class="fa-solid fa-location-dot"></i>
+            </button>
+            <ul id="dropdown-place" class="dropdown-menu loc_cetagory">
+
+
+            </ul>
+          </div>
+
+
+
+          <div class="dropdown mt-5 com-btn">
+            <button class="btn company_btn dropdown-toggle" type="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              Companys <i class="fa-solid fa-building"></i>
+            </button>
+            <ul id="dropdown-company" class="dropdown-menu ceta-body">
+
+
+            </ul>
+          </div>
+
+
+          <div class="dropdown mt-5 com-btn">
+            <button class="btn orga_btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Organigation Type <i class="fa-solid fa-building"></i>
+            </button>
+            <ul id="dropdown-organigation" class="dropdown-menu orga-body">
+
+
+            </ul>
+          </div>
+
+
+
+
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+
+
+  </main>
+
+
+
+
+
+
+
+
+  <section class="text-center  w-75  m-auto map mt-5 mb-5">
+
+
+    <h3 class="mb-5">Contact us</h3>
+
+
+    <div class="row map-box">
+      <div class="col-lg-5">
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12094.57348593182!2d-74.00599512526003!3d40.72586666928451!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c2598f988156a9%3A0xd54629bdf9d61d68!2sBroadway-Lafayette%20St!5e0!3m2!1spl!2spl!4v1624523797308!5m2!1spl!2spl"
+          class="h-100 w-100" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+      </div>
+
+      <div class="col-lg-7">
+        <form id="contact-form" onsubmit="contact_for_function(event)">
+          <div class="row">
+            <div class="col-md-9">
+              <div class="row mb-4">
+                <div class="col-md-6 mb-4 mb-md-0">
+
+                  <div data-mdb-input-init class="form-outline">
+                    <label class="form-label" for="phone">Your Phone</label>
+                    <input required type="text" id="phone" placeholder="Your Available Phone" name="phone" class="form-control" />
+
+                  </div>
+
+                </div>
+
+
+                <div class="col-md-6">
+                  <div data-mdb-input-init class="form-outline">
+                    <label class="form-label" for="email">Email</label>
+                    <input required type="email" id="email" name="email" placeholder="Enter Your Email" class="form-control" />
+
+                  </div>
+                </div>
+              </div>
+              <div data-mdb-input-init class="form-outline mb-4">
+                <label class="form-label" for="msg">Message</label>
+                <textarea required class="form-control" placeholder="write your question!" id="msg" name="msg" rows="4"></textarea>
+
+              </div>
+              <div class="text-center text-md-start">
+                <button type="submit" data-mdb-button-init data-mdb-ripple-init class="button-6 mb-5 mb-md-0">
+                  Send
+                </button>
+              </div>
+            </div>
+
+          </div>
+        </form>
+
+      </div>
+    </div>
+
+
+  </section>
+
+
+  <!-- Footer -->
+  <footer class="text-center text-lg-start text-white footer-coloring">
+    <!-- Section: Social media -->
+    <section class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom">
+      <!-- Left -->
+      <div class="me-5 d-none d-lg-block">
+        <span>Get connected with us on social networks:</span>
+      </div>
+      <!-- Left -->
+
+      <!-- Right -->
+      <div class="d-flex gap-2">
+        <a class="fb-icon" href="" class="me-4 text-reset">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+        <a class="twiter-icon" href="" class="me-4 text-reset ">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a class="google-icon" href="" class="me-4 text-reset">
+          <i class="fab fa-google"></i>
+        </a>
+        <a class="insta-icon" href="" class="me-4 text-reset">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a class="linkdin-icon" href="" class="me-4 text-reset">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="" class="me-4 text-reset">
+          <i class="fab fa-github"></i>
+        </a>
+      </div>
+      <!-- Right -->
+    </section>
+    <!-- Section: Social media -->
+
+    <!-- Section: Links  -->
+    <section class="">
+      <div class="container text-center text-md-start mt-5">
+        <!-- Grid row -->
+        <div class="row mt-3">
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
+            <!-- Content -->
+            <h6 class="text-capitalize fw-bold mb-4">
+              <i class="fas fa-gem me-3"></i>Finds Hiring
+            </h6>
+            <p>
+              Everything You Need To Accelerate The Hiring Process. Remote Hiring or Local jobie.
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Contact
+            </h6>
+            <p>
+              <i class="fa-solid fa-location-dot" style="color: #65d267;"></i>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">React</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Vue</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Laravel</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">
+              Useful links
+            </h6>
+            <p>
+              <a href="service.html" class="text-reset">About us</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Settings</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Orders</a>
+            </p>
+            <p>
+              <a href="#!" class="text-reset">Help</a>
+            </p>
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
+            <!-- Links -->
+            <h6 class="text-uppercase fw-bold mb-4">Contact</h6>
+            <p><i class="fas fa-home me-3"></i>Companigonj,Noakhali,Bangladesh</p>
+            <p>
+              <i class="fas fa-envelope me-3"></i>
+              golamfaruk680@gmail.com
+            </p>
+            <p><i class="fas fa-phone me-3"></i> + 01 234 567 88</p>
+            <p><i class="fas fa-print me-3"></i> + 01 234 567 89</p>
+          </div>
+          <!-- Grid column -->
+        </div>
+        <!-- Grid row -->
+      </div>
+    </section>
+    <!-- Section: Links  -->
+
+    <!-- Copyright -->
+    <div class="text-center p-4" style="background-color: rgba(0, 0, 0, 0.05);">
+      © 2021 Copyright:
+      <a class="text-reset fw-bold" href="https://mdbootstrap.com/">MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  </footer>
+  <!-- Footer -->
+
+
+
+
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+    crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <script src="/js/app.js"></script>
+  <script src="/js//auth.js"></script>
+  <script src="/js/service.js"></script>
+  <script src="/js/logout.js"></script>
+  <script src="/js/job_apply.js"></script>
+  <script src="/js/navber.js"></script>
+
+</body>
+
+</html>
