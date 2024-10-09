@@ -35,12 +35,12 @@ const job_organigaiton = (id) => {
 
 const job_company = (id) => {
 
-  
+
 
   fetch(`http://127.0.0.1:8000/joblist/?Company_id=${id}`)
     .then((res) => res.json())
     .then((data) => single_job(data))
-  
+
 
 
 }
@@ -55,7 +55,7 @@ const jobs = () => {
   fetch('http://127.0.0.1:8000/joblist/')
     .then((res) => res.json())
     .then((data) => single_job(data))
-  
+
 
 
 
@@ -64,95 +64,108 @@ const jobs = () => {
 jobs()
 
 
-const loc_array = []
+
 
 const single_job = (job_list) => {
 
+  document.getElementById('job-box-container').innerHTML=""
+  document.getElementById('data_not_found').innerHTML = ""
 
-  document.getElementById('not_found_job').innerText=""
+  console.log(job_list)
 
+  if (job_list.length == 0) {
 
-  const token = localStorage.getItem('Token')
+    
 
-  const parent = document.getElementById('job-box-container')
-  parent.innerHTML = ""
+    document.getElementById('data_not_found').innerHTML = `
 
-  job_list.forEach(element => {
+      <img src="/picture/no-data-concept-illustration_114360-695-removebg-preview.png" alt="">
 
-      console.log(element)
-
-    loc_array.push(element.Place)
-
-    // console.log(element)
-    const div = document.createElement('div')
-
-    div.innerHTML = `
-        
-        <div class="single-job-container">
-
-          <div class="job-title d-flex gap-3">
-
-            <div class="logo">
-              <img class="logopic" src="${element.logo}" alt="">
-            </div>
-
-            <div class="title">
-              <h3><b>${element.job_title}</b></h3>
-            </div>
-
-          </div>
-            <div class="d-flex justify-content-between m-2">
-
-                <div class='d-flex gap-4 '>
-                        <p id="signle_loc"><i class="fa-solid fa-location-dot"></i>: ${element.Place} </p>
-                        <p><i class="fa-solid fa-briefcase"></i>: ${element.employment_status}</p>       
-                </div>
-            
-
-                <div class="">
-
-                  ${token ? `<a  href="job_apply.html" class='button-47 apply-btn'>Apply</a>` : ""
-              }
-                </div>
-
-              </div>
-              <div class="d-flex gap-3">
-
-                  <p><b>Published Date</b>: ${element.published}</p>
-                  <p><b>Application Deadline</b>: ${element.application_deadline}</p>
-                  <button  class="view_more button-86"><a class="job_btn_link" target="_blank" href="job_details.html?job_id=${element.id}">View More</a></button>
-
-              </div>
-            
-        </div>
-        
-        
-        
-        `
-
-
-
-
-    parent.appendChild(div)
-
-
-
-
+      <h4  class="text-center text-danger sorry">Sorry! <i class="fa-solid fa-face-sad-tear" style="color: #ffc800;"></i> Data Not found</h4>
+    
+    `
   }
-  );
+  else {
 
 
-  console.log(loc_array)
+    
+    
 
-  loc_array.forEach(element => {
 
-    fetch(`http://127.0.0.1:8000/place/${element}/`)
-      .then((res) => res.json())
-      .then((data) => {
-        document.getElementById('signle_loc').innerText = `${data.name} `,
-        console.log(data)
-      })
-  })
+    const token = localStorage.getItem('Token')
+
+    const parent = document.getElementById('job-box-container')
+    parent.innerHTML = ""
+
+    
+
+    job_list.forEach(element => {
+
+
+
+      // console.log(element)
+      const div = document.createElement('div')
+
+      div.innerHTML = `
+          
+          <div class="single-job-container">
+  
+            <div class="job-title d-flex gap-3">
+  
+              <div class="logo">
+                <img class="logopic" src="${element.logo}" alt="">
+              </div>
+  
+              <div class="title">
+                <h3><b>${element.job_title}</b></h3>
+              </div>
+  
+            </div>
+              <div class="d-flex justify-content-between m-2">
+  
+                  <div class='d-flex gap-4 '>
+                          <p id="signle_loc">Age Limit: ${element.age_limit} </p>
+                          <p><i class="fa-solid fa-briefcase"></i>: ${element.employment_status}</p>       
+                  </div>
+              
+  
+                  <div class="">
+  
+                    ${token ? `<a  href="job_apply.html" class='button-47 apply-btn'>Apply</a>` : ""
+        }
+                  </div>
+  
+                </div>
+                <div class="d-flex gap-3">
+  
+                    <p><b>Published Date</b>: ${element.published}</p>
+                    <p><b>Application Deadline</b>: ${element.application_deadline}</p>
+                    <button  class="view_more button-86"><a class="job_btn_link" target="_blank" href="job_details.html?job_id=${element.id}">View More</a></button>
+  
+                </div>
+              
+          </div>
+          
+          
+          
+          `
+
+
+
+
+      parent.appendChild(div)
+
+
+
+
+    }
+    );
+  }
+
+
+
+
+
 }
 
 
@@ -237,7 +250,7 @@ const load_company = () => {
     .then((res) => res.json())
     .then((data) => {
       // document.getElementById(''),
-   
+
       display_company(data)
 
     })

@@ -70,3 +70,51 @@
         transform: translateY(-0.1em);
     }
 }
+
+.account-body{
+    height: auto;
+    background-color: rgb(5, 69, 108);
+}
+
+.account-update-form{
+    background-color: crimson;
+    border-radius: 15px;
+    border: 2px solid orange;
+}
+
+.table-user-view-profile{
+    border-radius: 10px;
+    margin-top: 40px;
+}
+
+.account-img{
+    width: 150px;
+    height: 150px;
+    border-radius: 1900px;
+
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: -80px;
+    
+}
+
+.my-account{
+    margin-top: 80px;
+}
+
+.pass-change{
+    font-family: fantasy;
+    /* font-weight: bold; */
+}
+
+.all-job-box-img{
+    width: 150px;
+    height: auto;
+}
+
+.box-job{
+    background-color: antiquewhite;
+    border: 3px solid rgb(3, 152, 232);
+
+}

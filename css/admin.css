@@ -65,7 +65,7 @@
 }
 
 .all-job-list-admin {
-    background-color:orange;
+    /* background-color:orange; */
     border-radius: 10px;
 }
 
@@ -80,6 +80,10 @@
     color: black;
 }
 
+.edu-admin{
+    font-family: fantasy;
+}
+
 .admin-job-img {
 
     width: 150px;
@@ -88,7 +92,14 @@
     /* margin-top: -60px; */
 
 }
-
+.font-com{
+    font-family: fantasy;
+}
+.job-expectation{
+    border: 3px solid aqua;
+    background-color: tomato;
+    border-radius: 15px;
+}
 
 
 .apply_details {

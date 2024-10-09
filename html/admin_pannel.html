@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="/css/job_apply.css">
   <link rel="stylesheet" href="/css/browse.css">
   <link rel="stylesheet" href="/css/admin.css">
+  <link rel="stylesheet" href="/css/edit.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
     integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -20,30 +21,12 @@
 <body>
 
 
-  <header>
+  <header class="com-body">
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary nav">
-      <div class="container-fluid">
-        <a class="navbar-brand" href="#">Navbar</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
-          aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link active" aria-current="page" href="base.html">Home</a>
-            </li>
+    <div id="navber">
 
 
-          </ul>
-          <form class="d-flex gap-2" role="search">
-            <a href="register.html" class="btn btn-warning">Sign up</a>
-            <a href="login.html" class="btn btn-warning">Login</a>
-          </form>
-        </div>
-      </div>
-    </nav>
+    </div>
   </header>
   <main class="form-main">
 
@@ -96,11 +79,11 @@
           <h2 class="text-center"><b>Filter Box</b></h2>
           <hr class="w-75 m-auto">
 
-          <h4 class="mt-4">You can filtiring Company Name Wise</h4>
+          <h4 class="mt-4">You can filtiring Job Title Wise</h4>
           <div class="dropdown col-md-2 col-sm-12 text-center w-75 m-auto">
             <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
               aria-expanded="false">
-              Company Name
+              Job title
             </button>
             <ul id="all-applylist" class="dropdown-menu B_cetagory">
 
@@ -351,7 +334,7 @@
   <script src="/js/job_pst.js"></script>
   <script src="/js/job_apply.js"></script>
   <script src="/js/add_B_cetagory.js"></script>
-
+  <script src="/js/navber.js"></script>
 </body>
 
 </html>

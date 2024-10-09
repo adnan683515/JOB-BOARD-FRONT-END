@@ -14,7 +14,7 @@ const handlelogout=()=>{
         console.log(data);
         localStorage.removeItem('Token');
         localStorage.removeItem('user_id');
-        window.location.href = 'login.html';
+        window.location.href = 'base.html';
     })
 
 
