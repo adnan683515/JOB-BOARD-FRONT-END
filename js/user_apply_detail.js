@@ -14,12 +14,13 @@ const get_params = () => {
         .then((res) => res.json())
         .then((apply_data) => {
 
-            console.log(apply_data.job)
+            console.log(apply_data)
 
             fetch(`http://127.0.0.1:8000/user/${user_id[1]}${user_id[2]}/`)
                 .then((res) => res.json())
                 .then((data) => {
-        
+
+                    // console.log(data.job.job_title)
 
 
 
@@ -33,7 +34,7 @@ const get_params = () => {
 
             `
 
-                document.getElementById('apply-previous-com-and-detail').innerHTML = `
+                    document.getElementById('apply-previous-com-and-detail').innerHTML = `
         
                 <div class="previous-details col-lg-6  col-md-5 col-sm-12 m-5 p-4" id="previous-details">
 
@@ -64,58 +65,41 @@ const get_params = () => {
 
                 `
 
-                fetch(`http://127.0.0.1:8000/joblist/${apply_data.job}/`)
-                .then((res) => res.json())
-                .then((data) =>{
+                    // fetch(`http://127.0.0.1:8000/joblist/${apply_data.job}/`)
+                    // .then((res) => res.json())
+                    // .then((data) =>{
 
+                    // console.log(data)
+                    console.log(apply_data.job.job_title)
                     document.getElementById('job-expectation').innerHTML = `
-                    
-
-                        <h1 id="company-name-dora"  class="text-center font-com">${data.Company}</h1>
+                                
+                        <img class="apply_data_job_logo float-left image-responsive text-center" src="${apply_data.job.logo}" alt="">
+                        <div class="text-center">
+                                <h1 id="company-name-dora"  class="text-center font-com">${apply_data.job.Company.company_name}</h1>
+                            
+                        </div>
                         <hr class="text-center w-50 m-auto mb-5" >
-                        <h2 class="font-com"><b>Job Title: ${data.job_title}</b></h2>
-                        
-                        <p class="font-com" ><b>Employment Satus:</b> ${data.employment_status}</p>
-                        <p id="orga-name-dora"><b>Organization:</b> ${data.organizationtype}</p>
-                        <p class="font-com"><b>Gender:</b> ${data.gender}</p>
-                        <p class="edu-admin"><b>Education:</b> ${data.education}</p>
-                        <p class="font-com" ><b>Experience:</b> ${data.experience}</p>
-                        <p class="font-com" ><b>Requirment :</b> ${data.requirments}</p>
-                    
+                        <h2 class="font-com"><b>Job Title: ${apply_data.job.job_title}</b></h2>
+                                        
+                        <p class="font-com" ><b>Employment Satus:</b> ${apply_data.job.employment_status}</p>
+                        <p id="orga-name-dora"><b>Organization:</b> ${apply_data.job.organizationtype.name}</p>
+                        <p class="font-com"><b>Gender:</b> ${apply_data.job.gender}</p>
+                        <p class="edu-admin"><b>Education:</b> ${apply_data.job.education}</p>
+                        <p class="font-com" ><b>Experience:</b> ${apply_data.job.experience}</p>
+                        <p class="font-com" ><b>Requirment :</b> ${apply_data.job.requirments}</p>
+                                    
 
-                    `
-
-                    compnay_dorafunctin(data.Company),
-                    ogra_dora_funtion(data.organizationtype)
-                })
+                        `
 
                 })
 
         })
+
+    // })
 }
 get_params()
 
-const compnay_dorafunctin=(id)=>{
 
-    fetch(`http://127.0.0.1:8000/companys/${id}/`)
-    .then((res) => res.json())
-    .then((data) => {
-        document.getElementById('company-name-dora').innerText=data.company_name
-    })
-    
-}
-
-const ogra_dora_funtion=(id)=>{
-
-    fetch(`http://127.0.0.1:8000/organaigationtype/${id}/`)
-    .then((res) => res.json())
-    .then((data) =>{
-
-        document.getElementById('orga-name-dora').innerText=`Organization: ${data.name}`
-
-    })
-
-}
 
 
 

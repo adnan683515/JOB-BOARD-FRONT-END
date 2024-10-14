@@ -61,14 +61,8 @@ const handleapply = (event) => {
 
 
 
-
-
-
-
-
-
-
             const apply_job_title_id = new_form_data.get('Apply-Job-Title')
+            console.log(apply_job_title_id)
 
             // const ans = parent(apply_job_title_id)
             // console.log(ans)
@@ -78,9 +72,6 @@ const handleapply = (event) => {
 
 
             const apply_obj = {
-
-
-
 
                 job: parseInt(apply_job_title_id),
 
@@ -105,10 +96,11 @@ const handleapply = (event) => {
 
                 resume: new_form_data.get('your-resume')
 
-
             }
 
             console.log(apply_obj)
+
+            console.log(JSON.stringify(apply_obj))
 
             fetch('http://127.0.0.1:8000/applylist/', {
                 method: "POST",
@@ -122,7 +114,7 @@ const handleapply = (event) => {
                 .then((data) => {
 
                     document.getElementById('job-apply-success').innerText = "Your Job Application successfully!"
-                    console.log(data)
+                
                     document.getElementById('your-img').value = ""
                     document.getElementById('your-phone').value = ""
                     document.getElementById('Education').value = ""
@@ -157,57 +149,74 @@ user_applylist()
 
 const load_all_apply = (all_apply) => {
 
-
-    all_apply.forEach(element => {
-
-
-
-
-        const parent = document.getElementById('all-apply-body')
-
-        const tr = document.createElement('tr')
-
-        tr.classList.add('text-center')
-
-
-
-        tr.innerHTML = `
-
-
-                <th scope="row"><img  onclick=user_apply_details('${element.id}','${element.user}') class="admin-panel-img" src='${element.image}' alt="img"></th>
-                <td>${element.company}</td>
-                <td>${element.title}</td>
-                
-            
+    document.getElementById('all-apply-body').innerHTML=""
+    document.getElementById('admin-panel-noapply').innerHTML=""
     
-                <td>${element.status}</td>
+    if (all_apply.length == 0) {
 
-            
+        document.getElementById('admin-panel-noapply').innerHTML = `
+        
+            <img src="/picture/notfoundapply-removebg-preview.png" alt="">
+            <h3 class="text-center w-50 m-auto">Empty List!</h3>
+
+        
+        `
+    }
+
+    else {
+
+        all_apply.forEach(element => {
+
+
+
+
+            const parent = document.getElementById('all-apply-body')
+
+            const tr = document.createElement('tr')
+
+            tr.classList.add('text-center')
+
+
+
+            tr.innerHTML = `
+    
+    
+                    <th scope="row"><img  onclick=user_apply_details('${element.id}','${element.user}') class="admin-panel-img" src='${element.image}' alt="img"></th>
+                    <td>${element.company}</td>
+                    <td>${element.title}</td>
                     
                 
+        
+                    <td>${element.status}</td>
+    
                 
-            
-                <td> 
-                    <div class="dropdown">
-                        <button class="dropdown-toggle  button-89" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            Open
-                        </button>
-                        <div class="dropdown-menu open" aria-labelledby="dropdownMenu2">
                         
-                            <button class="dropdown-item" onclick="handleapplyListDelete('${element.id}')">Rejected</button>
-                            <button  onclick="handlestatus('${element.id}')" class="dropdown-item">Selected</button>
-                            <a href="apply_deatils_user.html?user_id=[${element.user},${element.id}]" class="dropdown-item">Apply Details</a>
-                        
+                    
+                    
+                
+                    <td> 
+                        <div class="dropdown">
+                            <button class="dropdown-toggle  button-89" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Open
+                            </button>
+                            <div class="dropdown-menu open" aria-labelledby="dropdownMenu2">
+                            
+                                <button class="dropdown-item" onclick="handleapplyListDelete('${element.id}')">Rejected</button>
+                                <button  onclick="handlestatus('${element.id}')" class="dropdown-item">Selected</button>
+                                <a href="apply_deatils_user.html?user_id=[${element.user},${element.id}]" class="dropdown-item">Apply Details</a>
+                            
+                            </div>
                         </div>
-                    </div>
-
-                </td>
-
+    
+                    </td>
+    
+                    
                 
-            
-            `
-        parent.appendChild(tr)
-    })
+                `
+            parent.appendChild(tr)
+        })
+    }
+
 
 }
 
@@ -358,7 +367,7 @@ const display_admin_all_job = (data) => {
     data.forEach(element => {
 
 
-        console.log(element)
+
         const parent = document.getElementById('job-box-admin')
 
         const div = document.createElement('div')
@@ -397,8 +406,8 @@ const display_admin_all_job = (data) => {
 
         `
 
-        console.log(element)
-        
+     
+
         parent.appendChild(div)
 
     })

@@ -33,7 +33,7 @@
 
     <div class="admin-panel w-75 m-auto text-center">
 
-      <h2><b>Welcome to Our Admin Panel!</b></h2>
+      <h2 class="admin-panel-title"><b>Welcome to Our Admin Panel!</b></h2>
       <hr>
 
     </div>
@@ -47,7 +47,7 @@
 
       <div class="adding-box col-md-5 col-sm-12 text-center">
 
-        <h4 class="text-center mb-4"><b>You Can Add company Name/Location/Job Title</b></h4>
+        <h4 class="text-center mb-4 add-loc-title-admin"><b>You Can Add company Name/Location/Job Title</b></h4>
         <div class="dropdown">
           <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
             data-bs-toggle="dropdown" aria-expanded="false">
@@ -68,7 +68,14 @@
           <h2 class="text-center"><b>Job Add</b></h2>
           <hr class="w-75 m-auto mb-3">
 
-          <a href="job_post.html" target="_blank" class="button-22 m-4 mt-5">Click me</a>
+
+
+
+
+
+
+          <button class="text-center add-btn" style="--clr:#39FF14"><span><a href="job_post.html" target="_blank"
+                class="text-decoration-none m-4 mt-5">Click me</a></span><i></i></button>
 
         </div>
 
@@ -120,18 +127,7 @@
             </tr>
           </thead>
           <tbody id="all-apply-body">
-            <!-- <tr>
-                            <th scope="row">1st</th>
-                            <td>CST</td>
-                            <td>2nd</td>
-                            <td>3.80</td>
-                            <td>BTEB</td>
-                            <td>BTEB</td>
-                            <td>BTEB</td>
-                            <td>BTEB</td>
-
-
-                        </tr> -->
+          
 
 
 
@@ -140,7 +136,11 @@
 
           </tbody>
         </table>
+        <div class="admin-panel-noapply w-50 m-auto" id="admin-panel-noapply">
 
+    
+
+        </div>
 
       </div>
 
@@ -187,6 +187,12 @@
       </div>
 
     </section>
+
+
+
+
+
+
 
 
   </main>
@@ -335,6 +341,7 @@
   <script src="/js/job_apply.js"></script>
   <script src="/js/add_B_cetagory.js"></script>
   <script src="/js/navber.js"></script>
+  <script src="/js/logout.js"></script>
 </body>
 
 </html>

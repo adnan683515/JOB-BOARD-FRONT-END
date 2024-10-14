@@ -41,11 +41,14 @@
     <main>
 
         <div class="register-form  align-items-center mt-5 mb-5">
-            <h2 class="text-black text-center "><b>Login</b></h2>
+            
 
-            <p id="user-not"></p>
+            
             <form onsubmit="handlelogin(event)" id="login-form" class="row g-3 log-in-form">
+                <h2 class="text-black text-center "><b>Login</b></h2>
+                <hr class="text-center w-75 m-auto text-dark">
                 <p class="text-danger" id="error"></p>
+                <p id="user-not"></p>
 
                 <div class="col-md-12">
                     <label for="username" class="form-label">Username</label>
@@ -58,14 +61,15 @@
                         id="password">
 
                 </div>
+                <a href="passwordcng.html">Forget Password!</a>
 
 
                 <div class="col-12">
                     <button href="base.html" type="submit" class="btn button-35 ">Log in</button>
-
+                    <a class="text-dark ml-2" href="register.html">Signup page</a>
+                    
                 </div>
-                <a href="register.html">Signup page</a>
-                <a href="passwordcng.html">Forget Password!</a>
+                
             </form>
 
 

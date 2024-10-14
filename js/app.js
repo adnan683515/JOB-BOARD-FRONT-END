@@ -68,14 +68,14 @@ jobs()
 
 const single_job = (job_list) => {
 
-  document.getElementById('job-box-container').innerHTML=""
+  document.getElementById('job-box-container').innerHTML = ""
   document.getElementById('data_not_found').innerHTML = ""
 
   console.log(job_list)
 
   if (job_list.length == 0) {
 
-    
+
 
     document.getElementById('data_not_found').innerHTML = `
 
@@ -88,8 +88,8 @@ const single_job = (job_list) => {
   else {
 
 
-    
-    
+
+
 
 
     const token = localStorage.getItem('Token')
@@ -97,7 +97,7 @@ const single_job = (job_list) => {
     const parent = document.getElementById('job-box-container')
     parent.innerHTML = ""
 
-    
+
 
     job_list.forEach(element => {
 
@@ -124,7 +124,7 @@ const single_job = (job_list) => {
               <div class="d-flex justify-content-between m-2">
   
                   <div class='d-flex gap-4 '>
-                          <p id="signle_loc">Age Limit: ${element.age_limit} </p>
+                          <p id="signle_loc" class="age-limit">Age Limit: ${element.age_limit} </p>
                           <p><i class="fa-solid fa-briefcase"></i>: ${element.employment_status}</p>       
                   </div>
               
@@ -138,8 +138,8 @@ const single_job = (job_list) => {
                 </div>
                 <div class="d-flex gap-3">
   
-                    <p><b>Published Date</b>: ${element.published}</p>
-                    <p><b>Application Deadline</b>: ${element.application_deadline}</p>
+                    <p class="published"><b>Published Date</b>: ${element.published}</p>
+                    <p class="application"><b>Application Deadline</b>: ${element.application_deadline}</p>
                     <button  class="view_more button-86"><a class="job_btn_link" target="_blank" href="job_details.html?job_id=${element.id}">View More</a></button>
   
                 </div>
@@ -311,4 +311,6 @@ const display_organigation = (all_organigation) => {
     parent.appendChild(li)
   })
 }
+
+
 

@@ -145,6 +145,7 @@ const handlePOST = (event) => {
 
 
             store_img_url.push(data.data.url)
+            console.log(data)
 
 
         })
@@ -222,7 +223,7 @@ const handlePOST = (event) => {
 
 
 
-
+            console.log(JSON.stringify(Post_Obj))
 
             fetch('http://127.0.0.1:8000/joblist/', {
                 method: "POST",

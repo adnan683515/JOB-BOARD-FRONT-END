@@ -1,11 +1,29 @@
 
-
-fetch('navbar.html')
+fetch("navbar.html")
     .then((res) => res.text())
     .then((data) => {
 
-        document.getElementById('navber').innerHTML = data;
+
+
+
+        const navi = document.getElementById('navber')
+        const admin = localStorage.getItem('Admin')
+        console.log(admin)
+
+        navi.innerHTML = data
+
+
+
+        if (admin=='true'){
+            document.getElementById('admin').innerHTML= `<a href="admin_pannel.html">DeshBoard</a>`
+        }
+        else{
+            document.getElementById('admin').innerHTML= ""
+        }
+
         const account_item = document.getElementById('drop-item');
+
+
 
         const token = localStorage.getItem('Token')
         console.log(token)
@@ -25,6 +43,14 @@ fetch('navbar.html')
     
     `
         }
+
+
+
+
+
+
+
     })
+
 
 

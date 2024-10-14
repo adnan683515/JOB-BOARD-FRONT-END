@@ -12,7 +12,7 @@ const JOB_Details = (job_id) => {
         .then((data) => {
 
 
-            console.log(data)
+      
 
             document.getElementById('job_title').innerText = data.job_title
 
@@ -203,9 +203,9 @@ const JOB_Details = (job_id) => {
         fetch(`http://127.0.0.1:8000/joblist/${job_id}/`)
         .then((res) => res.json())
         .then((data) =>{
-            again_take_orga(data.organizationtype),
-            again_take_place(data.Place),
-            again_take_company(data.Company)
+            again_take_orga(data.organizationtype.id),
+            again_take_place(data.Place.id),
+            again_take_company(data.Company.id)
         })
 
 

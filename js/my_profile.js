@@ -78,56 +78,70 @@ const User_can_see_her_account = () => {
 const display_account_item = (listapply) => {
 
 
-    listapply.forEach(element => {
+    document.getElementById('apply_list_not_found').innerHTML =""
+    document.getElementById('account-my-body').innerHTML=""
 
-        console.log(element)
+    if (listapply.length == 0) {
 
-        document.getElementById('account-img-circle').innerHTML = `
+        document.getElementById('apply_list_not_found').innerHTML = `
+        
+            
+                    <img src="/picture/notfoundapply-removebg-preview.png" alt="">
+                    <h3 class="text-center text-white">No Apply List</h3>
+        
+        `
+    }
+    else {
+
+
+
+        listapply.forEach(element => {
+
+        
+            console.log(element)
+            document.getElementById('account-img-circle').innerHTML = `
 
             <img class="account-img" src="${element.image}" alt="">
         `
 
-        const parent = document.getElementById('account-my-body')
+            const parent = document.getElementById('account-my-body')
 
-        const tr = document.createElement('tr')
+            const tr = document.createElement('tr')
 
-        tr.innerHTML = `
+            tr.innerHTML = `
         
             
                         
-                            <td  id="job_id_diya_job_item">${element.job}</td>
-                            <td>${element}</td>
-                            <td>${element.employment_status}</td>
+                            <td  id="job_id_diya_job_item">${element.job.job_title}</td>
+                            <td>${element.job.Company.company_name}</td>
+                            <td>${element.job.employment_status}</td>
                             <td>${element.status}</td>
                             <td><a href="apply_edit.html?edit_apply=${element.id}"> <i class="fa-solid fa-pen fa-xl" style="color: #00ff7b;"></i> </a></td>
                             <td onclick="delete_user_apply('${element.id}')"><i class="fa-solid fa-xmark fa-xl" style="color: #ff0000;"></i></td>
                             <td><a href="job_details.html?job_id=${element.job}"> <i class="fa-solid fa-arrow-right fa-xl" style="color: #06a5ea;"></i> </a> </td>
+                            
                     
         
         
-        `
-        parent.appendChild(tr)
-        job_profile(element.job)
+        `   
+            
+            parent.appendChild(tr)
+            // job_profile(element.job)
 
-    
-    });
-}
 
-const job_profile=(id)=>{
+        });
+    }
 
-    fetch(`http://127.0.0.1:8000/joblist/${id}/`)
-    .then((res) => res.json())
-    .then((data)=> {
-        diplay_profile_job(data),
-        console.log("data")
-    })
 
 }
 
-const diplay_profile_job=(data)=>{
 
-    data.forEach(element=>{
-        document.getElementById('job_id_diya_job_item').innerText= `${element.job_title}`
+
+
+const diplay_profile_job = (data) => {
+
+    data.forEach(element => {
+        document.getElementById('job_id_diya_job_item').innerText = `${element.job_title}`
     })
 }
 
@@ -162,7 +176,7 @@ const edit_apply_for_user = () => {
     fetch(`http://127.0.0.1:8000/applylist/${params}/`)
         .then((res) => res.json())
         .then((data) => {
-            console.log(data)
+     
             document.getElementById('your-phone-edit-apply').value = data.phone_number
             document.getElementById('Education-edit-apply').value = data.education
             document.getElementById('Link-edit-apply').value = data.facebookLink
@@ -179,17 +193,19 @@ const edit_apply_for_user = () => {
 edit_apply_for_user()
 
 const onsubmit_update_apply = (event) => {
-
+    document.getElementById('job-apply-edit-success').innerText = ""
     event.preventDefault()
-
+    const params = new URLSearchParams(window.location.search).get('edit_apply')
+    console.log(params)
     const form = document.getElementById('job-apply-form-edit')
 
     const fMdata = new FormData(form)
-    console.log(fMdata)
+
 
     const YourImg = document.getElementById('your-img-edit-apply').files[0]
 
-    fMdata.append('your-img', YourImg)
+    fMdata.append('image', YourImg)
+
 
     fetch('https://api.imgbb.com/1/upload?key=6f50b3792873011dbc60103979595674', {
         method: "POST",
@@ -197,11 +213,47 @@ const onsubmit_update_apply = (event) => {
     })
         .then((res) => res.json())
         .then((data) => {
-            console.log(data)
 
+            const new_fm_data = new FormData(form)
+
+            new_fm_data.append('Your_edit_img', data.data.display_url)
+            console.log(new_fm_data)
+
+            const create_obj_for_edit_apply = {
+                phone_number: new_fm_data.get('your-phone-edit-apply'),
+                image: new_fm_data.get('Your_edit_img'),
+                status: "Pendding",
+                title: new_fm_data.get('your-job-title-edit-apply'),
+                company: new_fm_data.get('company-name-edit-apply'),
+                office_location: new_fm_data.get('office-location-edit-apply'),
+                education: new_fm_data.get('Education-edit-apply'),
+                facebookLink: new_fm_data.get('Link-edit-apply'),
+                resume: new_fm_data.get('your-resume-edit-apply'),
+                job: new_fm_data.get('Apply-Job-Title')
+
+            }
+
+            fetch(`http://127.0.0.1:8000/applylist/${params}/`, {
+                method: "PUT",
+                headers: { "Content-type": "application/json" },
+                body: JSON.stringify(create_obj_for_edit_apply)
+            })
+                .then((res) => res.json())
+                .then((data) => {
+
+                    document.getElementById('your-img-edit-apply').value = "",
+                        document.getElementById('your-phone-edit-apply').value = "",
+                        document.getElementById('Education-edit-apply').value = "",
+                        document.getElementById('Link-edit-apply').value = "",
+                        document.getElementById('your-resume-edit-apply').value = "",
+                        document.getElementById('Apply-Job-Title').value = "",
+                        document.getElementById('your-job-title-edit-apply').value = "",
+                        document.getElementById('company-name-edit-apply').value = "",
+                        document.getElementById('office-location-edit-apply').value = "",
+
+                        document.getElementById('job-apply-edit-success').innerText = "Your Application Updated!"
+                })
         })
-
-
 
 
 }
@@ -226,7 +278,7 @@ const all_load_job_for_all_job_page = () => {
                 div.classList.add('card')
                 div.classList.add('box-job')
                 div.classList.add('col-lg-3')
-                div.classList.add('col-md-3')
+                div.classList.add('col-md-12')
                 div.classList.add('col-sm-12')
                 div.classList.add('m-1')
 

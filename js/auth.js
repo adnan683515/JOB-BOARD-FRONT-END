@@ -44,9 +44,9 @@ const contact_for_function = (event) => {
 
 
 
-    document.getElementById('phone').value=""
-    document.getElementById('email').value=""
-    document.getElementById('msg').value=""
+    document.getElementById('phone').value = ""
+    document.getElementById('email').value = ""
+    document.getElementById('msg').value = ""
 
 }
 
@@ -92,10 +92,10 @@ const handleRegistration = (event) => {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    document.getElementById('email_text').innerText='Check Your Email!'
-                    
+                    document.getElementById('email_text').innerText = 'Check Your Email!'
+
                 })
-        
+
         }
         else {
             document.getElementById('validation').innerText = "password must be lowercase letters, uppercase letters, and special characters, and it ensures that the total length is at least 8 characters"
@@ -129,6 +129,9 @@ const handleRegistration = (event) => {
 
 const handlelogin = (event) => {
     event.preventDefault()
+
+
+
     document.getElementById('user-not').innerText = ""
 
     const form = document.getElementById('login-form')
@@ -137,13 +140,14 @@ const handlelogin = (event) => {
     const formDATA = new FormData(form)
     console.log(formDATA)
 
+
+
+
     const lagin_Obj = {
 
         username: formDATA.get('username'),
         password: formDATA.get('password')
     }
-
-
 
     document.getElementById('username').value = ""
     document.getElementById('password').value = ""
@@ -166,13 +170,27 @@ const handlelogin = (event) => {
         .then((data) => {
             console.log("Data:", data);
             console.log("Token:", data.token);
+            console.log("Staff", data.is_staff)
+
+
+
+        
+            
+            
 
 
             localStorage.setItem('Token', data.token);
             localStorage.setItem('user_id', data.user_id);
 
 
-            window.location.href = 'base.html';
+            fetch(`http://127.0.0.1:8000/user/${data.user_id}/`)
+            .then((res) => res.json())
+            .then((data) => {
+                localStorage.setItem('Admin',data.is_staff)
+            })
+
+
+            // window.location.href = 'base.html';
         })
         .catch((error) => {
             console.error("Error:", error);
@@ -184,26 +202,11 @@ const handlelogin = (event) => {
 
 
 
-    // .then((res) => res.json())
-
-    // .then((data)=>
-    //     {
-    //         console.log(data),
-    //         console.log("Token",data.token),
-    //         localStorage.setItem('Token',data.token),
-    //         localStorage.setItem('user_id',data.user_id)
-
-    //     }
-    //)
-
-
-    // .catch(
-    //     console.log("usernot valid"),
-    //     document.getElementById('user-not').innerText="username or password not valid"
-    // )
 
 
 
 }
+
+
 
 
