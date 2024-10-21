@@ -142,7 +142,7 @@ const Edit_value_post = (event) => {
 
 
             const param_id = new URLSearchParams(window.location.search).get("edit_id")
-
+            console.log("created obj post",create_edit_bj)
             
 
             fetch(`http://127.0.0.1:8000/joblist/${param_id}/`,{
@@ -152,9 +152,12 @@ const Edit_value_post = (event) => {
             })
             .then((res) => res.json())
             .then((data) => {
-
+                console.log(data)
                 document.getElementById('job-post-edit').innerText="Successfully! Your Job Application Edited!"
             })
+            .catch(
+                document.getElementById('job-post-edit').innerText="Plz fill up all field!"
+            )
             
 
 

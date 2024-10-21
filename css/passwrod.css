@@ -125,3 +125,22 @@
     height: auto;
 }
 
+.all_job_card{
+    width: 250px;
+    background-color: whitesmoke;
+    border: 1px solid sandybrown;
+}
+
+.all_job_card:hover{
+    background-color:gray;
+    color: black;
+    border: 1px solid cornflowerblue;
+    box-shadow: 4px 4px 4px rgb(75, 103, 125);
+    font-size: large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+.job_all_body{
+    background-color: rgb(5, 69, 108);
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+ 
+}

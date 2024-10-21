@@ -64,7 +64,7 @@ const User_can_see_her_account = () => {
 
     const id = localStorage.getItem('user_id')
 
-    fetch(`http://127.0.0.1:8000/applylist/?user_id=${id}`)
+    fetch(`http://127.0.0.1:8000/newapply/?user_id=${id}`)
         .then((res) => res.json())
         .then((data) => {
 
@@ -86,7 +86,7 @@ const display_account_item = (listapply) => {
         document.getElementById('apply_list_not_found').innerHTML = `
         
             
-                    <img src="/picture/notfoundapply-removebg-preview.png" alt="">
+                    <img class="notfoun_apply_user" src="/picture/notfoundapply-removebg-preview.png" alt="">
                     <h3 class="text-center text-white">No Apply List</h3>
         
         `
@@ -118,7 +118,7 @@ const display_account_item = (listapply) => {
                             <td>${element.status}</td>
                             <td><a href="apply_edit.html?edit_apply=${element.id}"> <i class="fa-solid fa-pen fa-xl" style="color: #00ff7b;"></i> </a></td>
                             <td onclick="delete_user_apply('${element.id}')"><i class="fa-solid fa-xmark fa-xl" style="color: #ff0000;"></i></td>
-                            <td><a href="job_details.html?job_id=${element.job}"> <i class="fa-solid fa-arrow-right fa-xl" style="color: #06a5ea;"></i> </a> </td>
+                            <td><a href="job_details.html?job_id=${element.job.id}"> <i class="fa-solid fa-arrow-right fa-xl" style="color: #06a5ea;"></i> </a> </td>
                             
                     
         
@@ -232,6 +232,7 @@ const onsubmit_update_apply = (event) => {
                 job: new_fm_data.get('Apply-Job-Title')
 
             }
+            console.log(create_obj_for_edit_apply)
 
             fetch(`http://127.0.0.1:8000/applylist/${params}/`, {
                 method: "PUT",
@@ -241,6 +242,7 @@ const onsubmit_update_apply = (event) => {
                 .then((res) => res.json())
                 .then((data) => {
 
+                    console.log(data)
                     document.getElementById('your-img-edit-apply').value = "",
                         document.getElementById('your-phone-edit-apply').value = "",
                         document.getElementById('Education-edit-apply').value = "",
@@ -276,10 +278,15 @@ const all_load_job_for_all_job_page = () => {
                 const div = document.createElement('div')
 
                 div.classList.add('card')
+                // div.classList.add('w-5')
+                div.classList.add('all_job_card')
                 div.classList.add('box-job')
                 div.classList.add('col-lg-3')
-                div.classList.add('col-md-12')
+                div.classList.add('col-md-5')
                 div.classList.add('col-sm-12')
+                // div.classList.add('mb-1')
+                // div.classList.add('mt-1')
+                // div.classList.add('w-5')
                 div.classList.add('m-1')
 
 

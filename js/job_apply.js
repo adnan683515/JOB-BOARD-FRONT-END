@@ -140,7 +140,7 @@ const handleapply = (event) => {
 
 
 const user_applylist = () => {
-    fetch('http://127.0.0.1:8000/applylist/')
+    fetch('http://127.0.0.1:8000/applistapiview/')
         .then((res) => res.json())
         .then((data) => load_all_apply(data))
 }
@@ -148,6 +148,7 @@ const user_applylist = () => {
 user_applylist()
 
 const load_all_apply = (all_apply) => {
+    console.log(all_apply)
 
     document.getElementById('all-apply-body').innerHTML=""
     document.getElementById('admin-panel-noapply').innerHTML=""
@@ -156,7 +157,7 @@ const load_all_apply = (all_apply) => {
 
         document.getElementById('admin-panel-noapply').innerHTML = `
         
-            <img src="/picture/notfoundapply-removebg-preview.png" alt="">
+            <img class="apply_noimg" src="/picture/notfoundapply-removebg-preview.png" alt="">
             <h3 class="text-center w-50 m-auto">Empty List!</h3>
 
         
@@ -166,7 +167,7 @@ const load_all_apply = (all_apply) => {
     else {
 
         all_apply.forEach(element => {
-
+            console.log(element)
 
 
 
@@ -182,6 +183,8 @@ const load_all_apply = (all_apply) => {
     
     
                     <th scope="row"><img  onclick=user_apply_details('${element.id}','${element.user}') class="admin-panel-img" src='${element.image}' alt="img"></th>
+                    <td>${element.user.username}</td>
+                    <td>${element.user.email}</td>
                     <td>${element.company}</td>
                     <td>${element.title}</td>
                     
@@ -203,7 +206,7 @@ const load_all_apply = (all_apply) => {
                             
                                 <button class="dropdown-item" onclick="handleapplyListDelete('${element.id}')">Rejected</button>
                                 <button  onclick="handlestatus('${element.id}')" class="dropdown-item">Selected</button>
-                                <a href="apply_deatils_user.html?user_id=[${element.user},${element.id}]" class="dropdown-item">Apply Details</a>
+                                <a href="apply_deatils_user.html?job_id=${element.id}" class="dropdown-item">Apply Details</a>
                             
                             </div>
                         </div>
@@ -233,7 +236,7 @@ const user_apply_details = (id, user_id) => {
 
 
 const handleapplyListDelete = (id) => {
-
+    console.log(id)
 
     document.getElementById('delete-apply').innerText = ""
 
@@ -338,7 +341,7 @@ const display_com_for_applylist = (alldata) => {
 
 const all_apply_view_admin_filter = (id) => {
 
-    fetch(`http://127.0.0.1:8000/applylist/?job_id=${id}`)
+    fetch(`http://127.0.0.1:8000/newapply/?job_params=${id}`)
         .then((res) => res.json())
         .then((data) => {
             document.getElementById('all-apply-body').innerHTML = "",
@@ -372,6 +375,7 @@ const display_admin_all_job = (data) => {
 
         const div = document.createElement('div')
         div.classList.add('single-box-job')
+        div.classList.add('col-lg-2')
         div.classList.add('col-md-3')
         div.classList.add('w-30')
         div.classList.add('col-sm-12')
@@ -406,7 +410,7 @@ const display_admin_all_job = (data) => {
 
         `
 
-     
+    
 
         parent.appendChild(div)
 

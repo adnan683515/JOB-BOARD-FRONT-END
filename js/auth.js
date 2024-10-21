@@ -187,6 +187,8 @@ const handlelogin = (event) => {
             .then((res) => res.json())
             .then((data) => {
                 localStorage.setItem('Admin',data.is_staff)
+                console.log(data.is_staff)
+                console.log(localStorage.getItem('Admin'))
             })
 
 

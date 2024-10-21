@@ -28,12 +28,12 @@
 
     </div>
   </header>
-  <main class="form-main">
+  <main class="admin_body p-5">
 
 
     <div class="admin-panel w-75 m-auto text-center">
 
-      <h2 class="admin-panel-title"><b>Welcome to Our Admin Panel!</b></h2>
+      <h2 class="admin-panel-title_new"><b>Welcome to Our Admin Panel!</b></h2>
       <hr>
 
     </div>
@@ -42,81 +42,26 @@
 
 
 
+
+
     <div class="admin-add-view-job-filter-box row w-100 m-auto mt-5 text-center">
 
 
-      <div class="adding-box col-md-5 col-sm-12 text-center">
-
-        <h4 class="text-center mb-4 add-loc-title-admin"><b>You Can Add company Name/Location/Job Title</b></h4>
-        <div class="dropdown">
-          <a class="btn btn-success dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-            data-bs-toggle="dropdown" aria-expanded="false">
-            Adding this Select Menu
-          </a>
-
-          <ul class="dropdown-menu com-place-job-filter" aria-labelledby="dropdownMenuLink">
-            <li><a class="dropdown-item" href="add_company.html">Company Name</a></li>
-            <li><a class="dropdown-item" href="add_Location.html">Place Name</a></li>
-            <li><a class="dropdown-item" href="add_browsecetagory.html">Job Title</a></li>
-          </ul>
-        </div>
+      <div class="view-job-apply-list col-md-12 col-sm-12 tab-content  table-responsive w-75 m-auto">
 
 
+        <h5 class="text-center all_applytitle">All Apply List</h5>
+        <hr class="w-50 m-auto">
+        <p class="delete-apply text-center text-dark" id="delete-apply"></p>
+        <p class="delete-apply text-center text-dark" id="email-send-accepted"></p>
 
-        <div class="job-applylist-filtering  col-md-6 w-75 m-auto col-sm-12 mt-5">
-
-          <h2 class="text-center"><b>Job Add</b></h2>
-          <hr class="w-75 m-auto mb-3">
-
-
-
-
-
-
-
-          <button class="text-center add-btn" style="--clr:#39FF14"><span><a href="job_post.html" target="_blank"
-                class="text-decoration-none m-4 mt-5">Click me</a></span><i></i></button>
-
-        </div>
-
-
-
-        <div class="job-applylist-filtering  col-md-6 w-75 m-auto col-sm-12 mt-5">
-
-          <h2 class="text-center"><b>Filter Box</b></h2>
-          <hr class="w-75 m-auto">
-
-          <h4 class="mt-4">You can filtiring Job Title Wise</h4>
-          <div class="dropdown col-md-2 col-sm-12 text-center w-75 m-auto">
-            <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              Job title
-            </button>
-            <ul id="all-applylist" class="dropdown-menu B_cetagory">
-
-
-            </ul>
-          </div>
-
-        </div>
-
-
-      </div>
-
-
-
-      <div class="view-job-apply-list col-md-7 col-sm-12">
-
-
-        <h5 class="text-center">All Apply List</h5>
-        <hr>
-        <p class="delete-apply text-center text-white" id="delete-apply"></p>
-        <p class="delete-apply text-center text-white" id="email-send-accepted"></p>
-
-        <table class="table table-responsive table-bordered border-primary ">
+        <table class="table table-bordered border-primary ">
           <thead class="table-dark text-white">
             <tr class="text-center">
               <th class="heading" scope="col">User</th>
+              <th scope="col">username</th>
+              <th scope="col">Email</th>
+
               <th scope="col">Previous Comapany Name</th>
               <th scope="col">Previous Job Title</th>
               <th scope="col">Status</th>
@@ -127,7 +72,7 @@
             </tr>
           </thead>
           <tbody id="all-apply-body">
-          
+
 
 
 
@@ -138,11 +83,70 @@
         </table>
         <div class="admin-panel-noapply w-50 m-auto" id="admin-panel-noapply">
 
-    
+
 
         </div>
 
       </div>
+
+
+
+
+
+      <div class="adding-box w-75 m-auto col-md-12 col-sm-12 text-center p-3 mt-5">
+
+          <h2 class="text-center text-white">You Can Adding/Filtering</h2>
+          <hr class="w-75 m-auto text-white mb-5">
+
+        <div class="row add_com_place_title m-2">
+
+          <a class="col-lg-3 col-md-12 col-sm-12 button-5 m-1" href="add_company.html">ADD COMPANY</a>
+
+
+          <a class="col-lg-3 col-md-12 col-sm-12 button-25  m-1" href="add_Location.html">ADD PLACE</a>
+
+
+
+          <a class="col-lg-3 col-md-12 col-sm-12 button-61  m-1" href="add_browsecetagory.html">ADD JOB TITLE</a>
+
+
+          <button class="text-center col-lg-3 col-md-12 col-sm-12 add-btn  m-1" style="--clr:#39FF14"><span><a
+            href="job_post.html" target="_blank" class="text-decoration-none ">ADD JOB</a></span><i></i></button>
+
+
+            <div class="dropdown col-lg-3 col-md-12 col-sm-12 text-center mt-2">
+
+              
+              <button class="button-25 w-100 dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                aria-expanded="false">
+                FILTER'S 
+              </button>
+              <ul id="all-applylist" class="dropdown-menu B_cetagory">
+  
+  
+              </ul>
+            </div>
+
+
+
+        </div>
+
+
+
+
+
+
+
+
+
+
+      </div>
+
+
+
+  
+
+
 
 
 
@@ -153,17 +157,17 @@
     </div>
 
 
-    <section class="all-job-list-admin">
-      <div class="all-job-view-admin  m-5 mt-5  text-align-cetner" id="all-job-view">
+    <section class="all-job-list-admin mt-5 w-75 m-auto">
+      <div class="all-job-view-admin   text-align-cetner" id="all-job-view">
 
 
-        <h1 class="text-center text-black"><b>All Jobs</b></h1>
-        <hr class="text-center text-white w-75 m-auto">
+        <h1 class="text-center text-black"><b>ALL JOB'S</b></h1>
+        <hr class="text-center text-dark w-75 m-auto">
 
         <p class="text-center text-white mt-2" id="delete-admin-job"></p>
 
 
-        <div class="row w-100 m-auto mt-5 " id="job-box-admin">
+        <div class="row mt-2 " id="job-box-admin">
 
 
           <!-- <div class="single-box-job col-md-3 w-30 col-sm-12 m-3 mt-5  text-center">
@@ -340,8 +344,9 @@
   <script src="/js/job_pst.js"></script>
   <script src="/js/job_apply.js"></script>
   <script src="/js/add_B_cetagory.js"></script>
-  <script src="/js/navber.js"></script>
+
   <script src="/js/logout.js"></script>
+  <script src="/js/navber.js"></script>
 </body>
 
 </html>

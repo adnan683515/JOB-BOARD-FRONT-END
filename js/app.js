@@ -79,7 +79,7 @@ const single_job = (job_list) => {
 
     document.getElementById('data_not_found').innerHTML = `
 
-      <img src="/picture/no-data-concept-illustration_114360-695-removebg-preview.png" alt="">
+      <img  class="not_found-Img" src="/picture/no-data-concept-illustration_114360-695-removebg-preview.png" alt="">
 
       <h4  class="text-center text-danger sorry">Sorry! <i class="fa-solid fa-face-sad-tear" style="color: #ffc800;"></i> Data Not found</h4>
     
@@ -117,7 +117,7 @@ const single_job = (job_list) => {
               </div>
   
               <div class="title">
-                <h3><b>${element.job_title}</b></h3>
+                <h3 class="job_title_text"><b>${element.job_title}</b></h3>
               </div>
   
             </div>
@@ -194,6 +194,7 @@ const display_BrowseCetagory = (allBCetagory) => {
 
     const li = document.createElement('li')
     li.classList.add('dropdown-item')
+    li.classList.add('li_item_b')
 
     li.innerHTML = `
         

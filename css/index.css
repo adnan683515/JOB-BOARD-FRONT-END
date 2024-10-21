@@ -30,7 +30,7 @@
 .unclock {
     font-family: Arial, Helvetica, sans-serif;
     color: orange;
-    font-size:large;
+    font-size: large;
 }
 
 .course_title {
@@ -108,7 +108,7 @@
 
 .body-of-home {
     /* background-color: rgb(255, 255, 254); */
-    background-color: rgb(254, 251, 247);
+    background-color: #E2E8F0;
 }
 
 .pasa-pasi-box {
@@ -324,7 +324,7 @@
     --s: .45em;
     /* size of the corner */
     --color: #373B44;
-
+    border: 2px solid greenyellow;
     padding: calc(.5em + var(--s)) calc(.9em + var(--s));
     color: var(--color);
     --_p: var(--s);
@@ -334,7 +334,8 @@
     outline: var(--b) solid #0000;
     outline-offset: .6em;
     font-size: 16px;
-
+    background-color:white;
+    border-radius: 10px;
     border: 0;
 
     user-select: none;
@@ -617,11 +618,17 @@
     font-family: fantasy;
     font-weight: bold;
 }
+.welcom{
+    color:red;
+    font-size: 50px;
+    font-weight: bold;
+}
 
 .job-list-home {
     font-family: fantasy;
     font-weight: bold;
     color: darkgoldenrod;
+    font-size: 40px;
 }
 
 .job-list-home-filter {
@@ -671,12 +678,29 @@
     margin: 10px;
     padding: 10px;
     height: auto;
-    border-radius: 5px;
+    border-radius: 10px;
     width: 100%;
+    background-color: white;
     box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
 
 }
+.single-job-container:hover{
 
+    box-shadow: 5px 5px 5px grey;
+    cursor: pointer;
+    border: 4px solid rgb(8, 107, 194);
+}
+
+.job-duration-salary-age:hover{
+    box-shadow: 3px 3px 3px gray;
+}
+
+.job_title_text:hover{
+
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: #09223b;
+    font-size: 30px;
+}
 
 
 .apply-btn {
@@ -865,8 +889,10 @@
 .job-duration-salary-age {
     /* border: 1px solid rgb(149, 126, 126); */
     border-radius: 10px;
+    background-color: floralwhite;
     box-shadow: 4px 4px 4px rgb(225, 215, 215);
     padding: 10px;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
 }
 
 
@@ -874,14 +900,16 @@
     box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
     padding: 5px;
     border-radius: 4px;
+    background-color: #FFFFFF;
 }
 
 .benefits {
     border-radius: 5px;
-    background-color: rgb(247, 240, 234);
+    background-color: floralwhite;
+    box-shadow: rgba(9, 30, 66, 0.25) 0px 1px 1px, rgba(9, 30, 66, 0.13) 0px 0px 1px 1px;
     padding: 10px;
     color: black;
-    box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
+
 }
 
 .requirment {
@@ -977,8 +1005,93 @@
     border-radius: 10px;
 }
 
+.orga-body {
+    background-color: rgb(10, 105, 105);
+
+}
+
+.orga-body:hover {
+    cursor: pointer;
+    background-color: #032756;
+    color: #dd4b39;
+    font-family: monospace;
+
+}
+
+.orga-body li:hover {
+    background-color: crimson;
+    color: tomato;
+
+}
+
+/* .li_item_b:hover{
+
+} */
+.ceta-body {
+    background-color: teal;
+    color: white;
+}
+
+.ceta-body:hover {
+    background-color: crimson;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border: 1px solid orange;
+
+}
+
+.ceta-body li:hover {
+    background-color: white;
+    color: #00b3ff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.loc_cetagory {
+    background-color: tomato;
+    font-family: fantasy;
+    color: #0082ca;
+}
+
+.loc_cetagory:hover {
+    background-color: #032756;
+    font-family: sans-serif;
+    color: #00b3ff;
+    border: 1px solid aqua;
+}
+
+.loc_cetagory li:hover {
+    background-color: crimson;
+    color: #00b3ff;
+}
+
+.B_cetagory {
+    background-color: #16437E;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #16437E;
+}
+
+.B_cetagory:hover{
+    background-color: rgb(25, 107, 134);
+    font-family: serif;
+    border: 1px solid crimson;
+    color: #16437E;
+}
+
+.job_title_for_datails:hover{
+    color: black;
+    font-size: 35px;
+}
+.B_cetagory li:hover{
+    background-color: orangered;
+    font-family: 'Courier New', Courier, monospace;
+    color: #121212;
+}
+
+.not_found-Img {
+    width: 200px;
+}
+
 .log-in-form {
-    background-color: rgb(206, 171, 107);
+    background-color: rgb(10, 100, 150);
     border-radius: 10px;
     width: 50%;
     margin: auto;

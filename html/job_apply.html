@@ -16,7 +16,7 @@
 
 </head>
 
-<body>
+<body class="form_main_css">
 
 
     <header class="com-body">
@@ -27,49 +27,49 @@
 
         </div>
     </header>
-    <main class="form-main">
+    <main class="form_main_css">
 
 
         <div class="job-post-container row  align-items-center m-3">
 
             <div class="col-md-12 col-sm-12">
 
-                <form class="row g-3 w-75 m-auto job-apply-form" id="job-apply-form" onsubmit="handleapply(event)">
-                    <h3 class="text-center text-white">Job Apply Form</h3>
+                <form class="row g-3 w-75 m-auto job-apply-form col-sm-12" id="job-apply-form" onsubmit="handleapply(event)">
+                    <h3 class="text-center text-job_apply">Job Apply Form</h3>
                     <hr class="text-center w-75 m-auto text-white mb-5">
 
                     <p class="text-center text-white m-5 add-com" id="job-apply-success"></p>
-                    <div class="mb-3 col-md-4 your-img">
+                    <div class="mb-3  col-lg-3 col-md-12 your-img">
                         <label for="your-img" class="form-label">Your Picture</label>
                         <input class="form-control" required type="file" name="your-img" id="your-img">
                     </div>
 
-                    <div class="mb-3 col-md-4 your-phone">
+                    <div class="mb-3 col-lg-3 col-md-12 your-phone">
                         <label for="your-phone" class="form-label">Phone Number</label>
                         <input placeholder="Enter Your Phone Number" required class="form-control" type="text"
                             name="your-phone" id="your-phone">
                     </div>
 
-                    <div class=" mb-3 col-md-4 Education">
+                    <div class=" mb-3 col-lg-3 col-md-12 Education">
                         <label for="Education" class="form-label">Education</label>
                         <input placeholder="Enter your Education" required class="form-control" type="text"
                             name="Education" id="Education">
                     </div>
 
-                    <div class=" mb-3 col-md-4 Education">
+                    <div class=" mb-3 col-lg-3 col-md-12 Education">
                         <label for="Link" class="form-label">Link</label>
                         <input placeholder="Your GitHub git hub link" required class="form-control" type="text"
                             name="Link" id="Link">
                     </div>
 
-                    <div class="mb-3 col-md-4 your-img">
+                    <div class="mb-3 col-lg-6 col-md-12 your-img">
                         <label for="your-resume" class="form-label">Upload Your Resume Link</label>
                         <input class="form-control" type="text" placeholder="Provide Your Resume Link"
                             name="your-resume" id="your-resume">
                     </div>
 
 
-                    <div class="col-md-4">
+                    <div class="col-lg-6 col-md-12">
                         <label for="Apply-Job-Title" class="form-label">Apply Job Title</label>
 
                         <select name="Apply-Job-Title" id="Apply-Job-Title" required class="form-select">
@@ -82,14 +82,14 @@
                     <div class="div-text-previous-company row mb-3 mt-5">
 
                         <div class="text col-md-3 text-center">
-                            <p>If you have previous work experience!attach it .
+                            <p class="if_you_have">If you have previous work experience!attach it .
                             </p>
-                            <p>other wise.You have to Fill up 'No'</p>
+                            <p class="if_you_have">other wise.You have to Fill up <p class="no"> 'No'</p></p>
                         </div>
 
                         <div class="input-file col-md-8 p-2">
 
-                            <h3 class="text-center text-black"><b>Previous Experience</b></h3>
+                            <h3 class="text-center text_priveious"><b>Previous Experience</b></h3>
                             <hr class="text-center w-75 m-auto text-black mb-5">
 
                             <div class="mb-3 col-md-12 your-job-title">
