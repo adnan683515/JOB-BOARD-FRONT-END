@@ -192,7 +192,7 @@ const handlelogin = (event) => {
             })
 
 
-            // window.location.href = 'base.html';
+            // window.location.href = 'index.html';
         })
         .catch((error) => {
             console.error("Error:", error);
